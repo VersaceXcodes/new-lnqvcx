@@ -1,0 +1,19 @@
+{
+  "timestamp": 1749929574912,
+  "operation": {
+    "id": "webapp:react:views",
+    "refs": {
+      "id": "GV_Footer",
+      "version": "1749929453796"
+    }
+  },
+  "projectId": "new",
+  "files": [
+    {
+      "path": "/mnt/data/new/vitereact/src/components/views/GV_Footer.tsx",
+      "type": "text",
+      "size": 869,
+      "dependencies": false
+    }
+  ]
+}

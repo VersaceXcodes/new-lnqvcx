@@ -1,0 +1,19 @@
+{
+  "timestamp": 1749929487852,
+  "operation": {
+    "id": "webapp:react:views",
+    "refs": {
+      "id": "UV_LandingPage",
+      "version": "latest"
+    }
+  },
+  "projectId": "new",
+  "files": [
+    {
+      "path": "/mnt/data/new/vitereact/src/components/views/UV_LandingPage.tsx",
+      "type": "text",
+      "size": 3008,
+      "dependencies": false
+    }
+  ]
+}

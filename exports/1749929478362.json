@@ -1,0 +1,19 @@
+{
+  "timestamp": 1749929478362,
+  "operation": {
+    "id": "webapp:react:views",
+    "refs": {
+      "id": "UV_Registration",
+      "version": "latest"
+    }
+  },
+  "projectId": "new",
+  "files": [
+    {
+      "path": "/mnt/data/new/vitereact/src/components/views/UV_Registration.tsx",
+      "type": "text",
+      "size": 3766,
+      "dependencies": false
+    }
+  ]
+}

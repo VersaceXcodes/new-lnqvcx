@@ -1,0 +1,15 @@
+{
+  "timestamp": 1749929250687,
+  "operation": {
+    "id": "backend:specifications:asyncapi"
+  },
+  "projectId": "new",
+  "files": [
+    {
+      "path": "/mnt/data/new/backend/asyncapi.yaml",
+      "type": "text",
+      "size": 3,
+      "dependencies": false
+    }
+  ]
+}

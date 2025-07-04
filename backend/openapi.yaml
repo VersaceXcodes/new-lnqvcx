@@ -1,0 +1,218 @@
+openapi: 3.0.0
+info:
+  title: BlogVerse API
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+paths:
+  /api/register:
+    post:
+      summary: Register a new user
+      operationId: registerUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegisterUserRequest"
+      responses:
+        "200":
+          description: User registered successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RegisterUserResponse"
+  /api/login:
+    post:
+      summary: User login
+      operationId: loginUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginRequest"
+      responses:
+        "200":
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LoginResponse"
+  /api/blog_posts:
+    post:
+      summary: Create a new blog post
+      operationId: createBlogPost
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateBlogPostRequest"
+      responses:
+        "200":
+          description: Blog post created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateBlogPostResponse"
+    get:
+      summary: Fetch all blog posts
+      operationId: fetchBlogPosts
+      parameters:
+        - in: query
+          name: tags
+          schema:
+            type: string
+          required: false
+          description: Filter by tags
+        - in: query
+          name: categories
+          schema:
+            type: string
+          required: false
+          description: Filter by categories
+      responses:
+        "200":
+          description: List of blog posts
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FetchBlogPostsResponse"
+  /api/comments:
+    post:
+      summary: Comment on a blog post
+      operationId: commentOnPost
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CommentOnPostRequest"
+      responses:
+        "200":
+          description: Comment added successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CommentOnPostResponse"
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    RegisterUserRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+        username:
+          type: string
+      required:
+        - email
+        - password
+        - username
+    RegisterUserResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+    LoginRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+      required:
+        - email
+        - password
+    LoginResponse:
+      type: object
+      properties:
+        auth_token:
+          type: string
+        message:
+          type: string
+    CreateBlogPostRequest:
+      type: object
+      properties:
+        title:
+          type: string
+        body_content:
+          type: string
+        tags:
+          type: string
+        categories:
+          type: string
+        status:
+          type: string
+          enum:
+            - draft
+            - published
+            - scheduled
+      required:
+        - title
+        - body_content
+        - status
+    CreateBlogPostResponse:
+      type: object
+      properties:
+        post_uid:
+          type: string
+        success:
+          type: boolean
+        message:
+          type: string
+    FetchBlogPostsResponse:
+      type: object
+      properties:
+        posts:
+          type: array
+          items:
+            type: object
+            properties:
+              post_uid:
+                type: string
+              author:
+                type: string
+              title:
+                type: string
+              created_at:
+                type: string
+                format: date-time
+              tags:
+                type: string
+              categories:
+                type: string
+    CommentOnPostRequest:
+      type: object
+      properties:
+        post_uid:
+          type: string
+        comment_text:
+          type: string
+      required:
+        - post_uid
+        - comment_text
+    CommentOnPostResponse:
+      type: object
+      properties:
+        comment_uid:
+          type: string
+        success:
+          type: boolean
+        message:
+          type: string

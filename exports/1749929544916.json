@@ -1,0 +1,19 @@
+{
+  "timestamp": 1749929544916,
+  "operation": {
+    "id": "webapp:react:views",
+    "refs": {
+      "id": "UV_PostDetail",
+      "version": "latest"
+    }
+  },
+  "projectId": "new",
+  "files": [
+    {
+      "path": "/mnt/data/new/vitereact/src/components/views/UV_PostDetail.tsx",
+      "type": "text",
+      "size": 3827,
+      "dependencies": false
+    }
+  ]
+}

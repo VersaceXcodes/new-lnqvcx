@@ -1,0 +1,21 @@
+{
+  "timestamp": 1749929315623,
+  "operation": {
+    "id": "settings:config:package"
+  },
+  "projectId": "new",
+  "files": [
+    {
+      "path": "/mnt/data/new/backend/package.json",
+      "type": "text",
+      "size": 782,
+      "dependencies": true
+    },
+    {
+      "path": "/mnt/data/new/backend/.env",
+      "type": "text",
+      "size": 165,
+      "dependencies": false
+    }
+  ]
+}

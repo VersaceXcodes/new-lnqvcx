@@ -1,0 +1,15 @@
+{
+  "timestamp": 1749929513771,
+  "operation": {
+    "id": "settings:config:package"
+  },
+  "projectId": "new",
+  "files": [
+    {
+      "path": "/mnt/data/new/vitereact/package.json",
+      "type": "text",
+      "size": 3000,
+      "dependencies": true
+    }
+  ]
+}
